@@ -59,7 +59,7 @@ class WidgetBridge {
   addEventListener(
     type: string,
     callback: EventListenerOrEventListenerObject,
-    options?: any
+    options?: any,
   ) {
     this.#eventTargets.addEventListener(type, callback, options);
   }
@@ -67,7 +67,7 @@ class WidgetBridge {
   removeEventListener(
     type: string,
     callback: EventListenerOrEventListenerObject,
-    options?: any
+    options?: any,
   ) {
     this.#eventTargets.removeEventListener(type, callback, options);
   }
@@ -81,19 +81,18 @@ class WidgetBridge {
     });
     this.promises = new Map();
   };
-  Send = (
+  SendAsync = (
     key: string | undefined,
     payload: any = {},
     options?: {
       type?: "BRIDGE_RESOLVE" | "BRIDGE_REJECT" | "BRIDGE";
       counter?: number;
-    }
+    },
   ): any => {
     let { type, counter } = options || {};
     counter = counter ?? this.counter++;
     return new Promise((resolve, reject) => {
-      if (key !== "INIT" && key !== "APP_DATA")
-        this.promises.set(counter, { resolve, reject });
+      this.promises.set(counter, { resolve, reject });
       this.channel.postMessage(
         JSON.stringify({
           type,
@@ -101,9 +100,28 @@ class WidgetBridge {
           key,
           payload,
         }),
-        this.origin
+        this.origin,
       );
     });
+  };
+  Send = (
+    key: string | undefined,
+    payload: any = {},
+    options?: {
+      type?: "BRIDGE_RESOLVE" | "BRIDGE_REJECT" | "BRIDGE";
+      counter?: number;
+    },
+  ): any => {
+    let { type, counter } = options || {};
+    this.channel.postMessage(
+      JSON.stringify({
+        type,
+        counter,
+        key,
+        payload,
+      }),
+      this.origin,
+    );
   };
 }
 export default WidgetBridge;
