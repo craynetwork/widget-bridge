@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Enables modern features like BigInt and Promise.allSettled
+    "module": "CommonJS", // CommonJS for compatibility with Node.js (or ESNext for ESM)
+    "lib": ["ES2020", "DOM"], // Use ES2020 and DOM APIs
+    "outDir": "./dist", // Output directory for compiled files
+    "rootDir": "./src", // Root directory for source files
+    "strict": true, // Enable all strict type-checking options
+    "esModuleInterop": true, // Allows interoperability between CommonJS and ES modules
+    "forceConsistentCasingInFileNames": true, // Enforce case-sensitive file names
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "declaration": true, // Generate type declaration files
+    "sourceMap": true, // Generate source maps for debugging
+    "resolveJsonModule": true, // Allow importing JSON files
+    "moduleResolution": "node", // Use Node.js module resolution
+    "noImplicitAny": true, // Disallow implicit `any` type
+    "noUnusedLocals": true, // Report unused local variables
+    "noUnusedParameters": true, // Report unused function parameters
+    "noFallthroughCasesInSwitch": true // Disallow fallthrough in switch statements
+  },
+  "include": ["src/**/*.ts"], // Include all TypeScript files in the `src` folder
+  "exclude": ["node_modules", "dist"] // Exclude unnecessary directories
+}
