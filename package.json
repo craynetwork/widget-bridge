@@ -1,6 +1,6 @@
 {
   "name": "widget-bridge",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Bridge for inter window communication",
   "main": "dist/index.js",
   "scripts": {
