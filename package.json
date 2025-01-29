@@ -1,8 +1,8 @@
 {
   "name": "widget-bridge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bridge for inter window communication",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "lint": "eslint 'src/**/*.ts'",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/craynetwork/popup-bridge.git"
+    "url": "git+https://github.com/craynetwork/widget-bridge.git"
   },
   "devDependencies": {
     "@types/node": "^22.10.9",
@@ -26,7 +26,7 @@
   "author": "cray network",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/craynetwork/popup-bridge/issues"
+    "url": "https://github.com/craynetwork/widget-bridge/issues"
   },
-  "homepage": "https://github.com/craynetwork/popup-bridge#readme"
+  "homepage": "https://github.com/craynetwork/widget-bridge#readme"
 }
